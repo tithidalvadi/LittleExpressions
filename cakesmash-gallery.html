@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cakesmash Gallery | Little Expressions Studio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+  --primary:#FF7F7F;
+  --primary-dark:#ef6a6a;
+  --secondary:#FFF7F2;
+  --accent:#7DCFB6;
+  --light-accent:#FFE5B4;
+  --bg:#FFFFFF;
+  --text:#4A4A4A;
+  --heading:#2f2f3a;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Poppins',sans-serif;
+  background:var(--secondary);
+  color:var(--text);
+}
+
+.header{
+  background:white;
+  padding:30px;
+  text-align:center;
+  box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+.header h1{
+  font-family:'Quicksand',sans-serif;
+  color:var(--heading);
+  font-size:2.5rem;
+}
+
+.header p{
+  margin-top:10px;
+  color:#777;
+}
+
+.back-btn{
+  display:inline-block;
+  margin-top:20px;
+  padding:12px 25px;
+  background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+  color:white;
+  text-decoration:none;
+  border-radius:50px;
+  font-weight:600;
+}
+
+.gallery-section{
+  padding:80px 20px;
+  max-width:1300px;
+  margin:auto;
+}
+
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:25px;
+}
+
+.gallery-grid img{
+  width:100%;
+  height:350px;
+  object-fit:cover;
+  border-radius:20px;
+  cursor:pointer;
+  transition:.4s;
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.gallery-grid img:hover{
+  transform:translateY(-8px) scale(1.03);
+}
+
+.lightbox{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.9);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+  z-index:9999;
+}
+
+.lightbox.active{
+  display:flex;
+}
+
+.lightbox img{
+  max-width:90%;
+  max-height:90vh;
+  border-radius:20px;
+}
+
+.close{
+  position:absolute;
+  top:20px;
+  right:30px;
+  color:white;
+  font-size:45px;
+  cursor:pointer;
+}
+
+.footer{
+  background:#2f2f3a;
+  color:white;
+  text-align:center;
+  padding:30px;
+}
+
+@media(max-width:768px){
+  .gallery-grid{
+    grid-template-columns:1fr;
+  }
+
+  .header h1{
+    font-size:2rem;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+  <h1>Cakesmash Photography Gallery</h1>
+  <p>Beautiful moments captured forever</p>
+
+  <a href="index.html" class="back-btn">
+    ← Back To Home
+  </a>
+</div>
+
+<section class="gallery-section">
+
+  <div class="gallery-grid">
+
+    <img src="image/newborn1.jpg" alt="">
+    <img src="image/newborn2.jpg" alt="">
+    <img src="image/newborn3.jpg" alt="">
+    <img src="image/newborn4.jpg" alt="">
+    <img src="image/newborn5.jpg" alt="">
+    <img src="image/newborn6.jpg" alt="">
+    <img src="image/newborn7.jpg" alt="">
+    <img src="image/newborn8.jpg" alt="">
+    <img src="image/newborn9.jpg" alt="">
+    <img src="image/newborn10.jpg" alt="">
+
+  </div>
+
+</section>
+
+<div class="lightbox" id="lightbox">
+  <span class="close">&times;</span>
+  <img id="preview" src="">
+</div>
+
+<div class="footer">
+  © 2026 Little Expressions Studio
+</div>
+
+<script>
+
+const images = document.querySelectorAll('.gallery-grid img');
+const lightbox = document.getElementById('lightbox');
+const preview = document.getElementById('preview');
+
+images.forEach(img => {
+  img.addEventListener('click', () => {
+    preview.src = img.src;
+    lightbox.classList.add('active');
+  });
+});
+
+lightbox.addEventListener('click', () => {
+  lightbox.classList.remove('active');
+});
+
+</script>
+
+</body>
+</html>
