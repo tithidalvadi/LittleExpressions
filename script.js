@@ -73,7 +73,7 @@ form.addEventListener('submit', (e) => {
   e.preventDefault();
   const data = new FormData(form);
   const msg = `Hi! I'd love to book a session.%0A%0AName: ${data.get('name')}%0APhone: ${data.get('phone')}%0AEmail: ${data.get('email') || '-'}%0AService: ${data.get('service')}%0AMessage: ${data.get('message') || '-'}`;
-  window.open(`https://wa.me/919724347292?text=${msg}`, '_blank');
+  window.open(`https://wa.me/916354-948911?text=${msg}`, '_blank');
   document.getElementById('formNote').textContent = '✨ Thanks! Opening WhatsApp to complete your booking…';
   form.reset();
 });
